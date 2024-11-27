@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>مدونة</title>
+</head>
+<body>
+    <nav>
+        <a href="/">الصفحة الرئيسية</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">تسجيل الخروج</a>
+        {% else %}
+            <a href="{% url 'login' %}">تسجيل الدخول</a>
+        {% endif %}
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
